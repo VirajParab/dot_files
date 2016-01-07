@@ -171,6 +171,21 @@ map Q gq
 " When you press <leader>r you can search and replace the selected text
 noremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 
+imap <c-u> <esc>:m-2<enter><esc>
+imap <c-c> <esc>yyi
+imap <c-a> <esc>0i
+imap <c-l> <esc>$i
+nmap <c-t> <esc>:tabnew<enter>:edit
+nmap <c-d> <esc>:m+1<enter><esc>
+map <F9> :FufFile<CR>
+nmap <c-u> <esc>:m-2<enter><esc>
+imap <c-d> <esc>:m+1<enter><esc>
+map <2-leftmouse> \m   
+" Grep stuff
+" Grep stuff
+map <C-G> :vimgrep /<C-R><C-W>/j *<CR>:cope<CR>
+
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
