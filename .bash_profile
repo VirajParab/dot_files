@@ -18,6 +18,10 @@ export LSCOLORS=Gxfxcxdxbxegedabagacad
      Y='\[\e[1;38;5;214m\]'
      W='\[\e[0m\]'
 
+# --------------------------------------------------------------------------------
+#                change prompt
+#---------------------------------------------------------------------------------
+     
     get_prompt_symbol() {
       [[ $UID == 0 ]] && echo "#" || echo " 👉 "
     }
@@ -44,8 +48,12 @@ export LSCOLORS=Gxfxcxdxbxegedabagacad
     export TERM='xterm-color'
   fi
 export PATH=$PATH:~/bin
-cd ~
 
+cd ~ #common path to open
+
+#----------------------------------------------------------------
+   #2 aliasing - making terminal better
+#-----------------------------------------------------------------
 
 # system monitoring
 alias topcpu='ps aux | tail -10'  # top 10 cpu processes
@@ -59,5 +67,22 @@ alias lt='l -t | less'
 export HISTCONTROL=erasedups # don't store duplicate lines
 export HISTSIZE=100000 #remember 100k unique lines
 
-alias get-current-branch="git branch 2>/dev/null | grep '^*' | colrm 1 2"
-alias get-current-color="if [[ \$(get-current-branch) == \"master\" ]] ; then echo \"1;33m\" ; else echo \"0m\" ; fi"
+alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
+alias ..='cd ../'                           # Go back 1 directory level
+alias ...='cd ../../'                       # Go back 2 directory levels
+alias .3='cd ../../../'                     # Go back 3 directory levels
+alias .4='cd ../../../../'                  # Go back 4 directory levels
+alias .5='cd ../../../../../'               # Go back 5 directory levels
+alias .6='cd ../../../../../../'            # Go back 6 directory levels
+alias edit='subl'                           # edit:         Opens any file
+alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
+alias ~="cd ~"                              # ~:            Go Home
+alias c='clear'                             # c:            Clear terminal display
+alias which='type -all'                     # which:        Find executables
+alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
+alias fix='stty sane'
+#recurive ls the files
+alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
+alias qfind="find . -name "                 # qfind:    Quickly search for filei
+alias ip='ifconfig | grep "inet" | tail -1'
+alias mysites='chrome www.gmail.com www.github.com www.trello.com '
