@@ -171,20 +171,21 @@ map Q gq
 " When you press <leader>r you can search and replace the selected text
 noremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 
-imap <c-u> <esc>:m-2<enter><esc>
 imap <c-c> <esc>yyi
 imap <c-a> <esc>0i
 imap <c-l> <esc>$i
+imap <c-s> <esc>:w<enter>i
 nmap <c-t> <esc>:tabnew<enter>:edit
 nmap <c-d> <esc>:m+1<enter><esc>
 map <F9> :FufFile<CR>
-nmap <c-u> <esc>:m-2<enter><esc>
-imap <c-d> <esc>:m+1<enter><esc>
+nmap <c-u> <esc>:m-2<enter><esc>i
+imap <c-d> <esc>:m+1<enter><esc>i
 map <2-leftmouse> \m   
 " Grep stuff
 " Grep stuff
 map <C-G> :vimgrep /<C-R><C-W>/j *<CR>:cope<CR>
-
+map <leader>d <S-g>
+map <leader>u gg
 
 
 
@@ -242,12 +243,11 @@ map <space> /
 map <c-space> ?
 
 " Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
+map <leader>tn :tabnew<cr>:edit
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
 map <leader>t<leader> :tabnext
-
 
 """"""""""""""""""""""""""""""
 " => Status line
@@ -271,5 +271,26 @@ map <leader>f :MRU<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
  let g:airline_theme="powerlineish"
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => emmit 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:user_emmet_leader_key='<C-Z>'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Multiple cursor
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:multi_cursor_use_default_mapping=0
+
+let g:multi_cursor_next_key='<S-n>'
+let g:multi_cursor_prev_key='<S-p>'
+let g:multi_cursor_skip_key='<S-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+let g:multi_cursor_start_key='<S-d>'
+let g:multi_cursor_start_word_key='g<C-n>'
+let g:multi_cursor_quit_key='<S-c>'
 
 

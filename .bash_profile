@@ -86,3 +86,32 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 alias qfind="find . -name "                 # qfind:    Quickly search for filei
 alias ip='ifconfig | grep "inet" | tail -1'
 alias mysites='chrome www.gmail.com www.github.com www.trello.com '
+
+# Git Shortcuts
+alias gs='git status'
+alias gst='git status -sb'
+alias ga='git add'
+alias gau='git add -u' # Removes deleted files
+alias gp='git pull'
+alias gpu='git push'
+alias gc='git commit'
+alias gca='git commit -v -a' # Does both add and commit in same command, add -m 'blah' for comment
+alias gco='git checkout'
+alias gl='git log --oneline'
+alias glog='git log'
+
+# editing/reloading bash configs
+alias editBash="vim ~/.bash_profile"
+alias reloadBash="source ~/.bash_profile"
+alias editVim="vim ~/.vimrc"
+
+# JAVA home
+export JAVA_HOME=jdk-install-dir
+export PATH=$JAVA_HOME/bin:$PATH
+
+#Postgress terminal 
+alias postgres='/Applications/PostgreSQL\ 9.5/SQL\ Shell\ \(psql\).app/Contents/MacOS/applet' 
+
+#sageMath
+alias sage='/Applications/SageMath/sage'
+alias phantom='/Applications/phantomjs-2.1.1-macosx/bin/phantomjs'
