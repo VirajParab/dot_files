@@ -458,7 +458,7 @@ noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=lin
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
-    \ 'kinds'     : [  'p:package', 'i:imports:1', 'c:constants', 'v:variables',
+``    \ 'kinds'     : [  'p:package', 'i:imports:1', 'c:constants', 'v:variables',
         \ 't:types',  'n:interfaces', 'w:fields', 'e:embedded', 'm:methods',
         \ 'r:constructor', 'f:functions' ],
     \ 'sro' : '.',
@@ -483,10 +483,6 @@ augroup FileType go
   au FileType go nmap <leader>rb <Plug>(go-build)
   au FileType go nmap <leader>gt <Plug>(go-test)
 augroup END
-
-
-
-
 
 let g:javascript_enable_domhtmlcss = 1
 
@@ -541,3 +537,16 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
+"***********************************************************************************
+"relative numbering
+"************************************************************************************
+function! NumberToggle()
+	  if(&relativenumber == 1)
+		      set number
+		 else
+			set relativenumber
+	endif
+endfunc
+
+ :call NumberToggle()
