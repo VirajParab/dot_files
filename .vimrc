@@ -24,6 +24,7 @@ let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
 let g:vim_bootstrap_langs = "javascript,c,html,go"
 let g:vim_bootstrap_editor = "vim"				" nvim or vim
 
+
 if !filereadable(neobundle_readme)
   echo "Installing NeoBundle..."
   echo ""
@@ -292,6 +293,24 @@ if !exists('*s:setupWrapping')
   endfunction
 endif
 
+
+"**************************************************************************
+" Git Gutter
+"**************************************************************************
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_max_signs = 500  " default value"
+let g:gitgutter_map_keys = 0
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+let g:gitgutter_highlight_lines = 1
+
+nmap <Leader>ha :GitGutterStageHunk <return>
+nmap <Leader>hr :GitGutterUndoHunk <return>
+nmap <Leader>ha :GitGutterStageHunk <return>
+nmap <Leader>hr :GitGutterUndoHunk <return>
+nmap <Leader>hv :GitGutterPreviewHunk <return>
+
+
 "*****************************************************************************
 "" Autocmd Rules
 "*****************************************************************************
@@ -333,7 +352,7 @@ noremap <Leader>v :<C-u>vsplit<CR>
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit<CR>
 noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
+noremap <Leader>gpl :Gpull<CR>
 noremap <Leader>gs :Gstatus<CR>
 noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gd :Gvdiff<CR>
@@ -458,7 +477,7 @@ noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=lin
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
-``    \ 'kinds'     : [  'p:package', 'i:imports:1', 'c:constants', 'v:variables',
+  \ 'kinds'     : [  'p:package', 'i:imports:1', 'c:constants', 'v:variables',
         \ 't:types',  'n:interfaces', 'w:fields', 'e:embedded', 'm:methods',
         \ 'r:constructor', 'f:functions' ],
     \ 'sro' : '.',
@@ -550,3 +569,5 @@ function! NumberToggle()
 endfunc
 
  :call NumberToggle()
+
+
