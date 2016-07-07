@@ -73,6 +73,10 @@ NeoBundle 'Shougo/vimproc.vim', {
 "" Vim-Session
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-session'
+NeoBundle 'https://github.com/Valloric/YouCompleteMe.git'
+NeoBundle 'https://github.com/mickaobrien/vim-stackoverflow'
+NeoBundle 'https://github.com/Shougo/neocomplete.vim.git'
+NeoBundle 'xolox/vim-shell'
 
 if v:version >= 703
   NeoBundle 'Shougo/vimshell.vim'
@@ -566,5 +570,11 @@ function! NumberToggle()
 endfunc
 
  :call NumberToggle()
+
+"********************************************************************************
+"  Vim Shell
+"*******************************************************************************
+noremap <leader>st :VimShellTab<CR>
+noremap <leader>sc :VimShellClose<CR>
 
 
