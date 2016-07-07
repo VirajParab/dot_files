@@ -507,7 +507,7 @@ augroup END
 let g:javascript_enable_domhtmlcss = 1
 
 noremap <leader>gi :GoImport<CR>
-noremap <leader>gl:GoLint<CR>
+noremap <leader>gl :GoLint<CR>
 
 
 " vim-javascript
