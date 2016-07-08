@@ -493,9 +493,8 @@ let g:tagbar_type_go = {
 augroup FileType go
   au!
   au FileType go nmap gd <Plug>(go-def)
-  au FileType go nmap <Leader>dd <Plug>(go-def-vertical)
+  au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 
-  au FileType go nmap <Leader>dv <Plug>(go-doc-vertical)
   au FileType go nmap <Leader>db <Plug>(go-doc-browser)
 
   au FileType go nmap <Leader>gi <Plug>(go-info)
