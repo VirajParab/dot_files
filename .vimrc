@@ -77,6 +77,9 @@ NeoBundle 'https://github.com/Valloric/YouCompleteMe.git'
 NeoBundle 'https://github.com/mickaobrien/vim-stackoverflow'
 NeoBundle 'https://github.com/Shougo/neocomplete.vim.git'
 NeoBundle 'xolox/vim-shell'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'vim-scripts/vim-auto-save'
+NeoBundle 'szw/vim-maximizer'
 
 if v:version >= 703
   NeoBundle 'Shougo/vimshell.vim'
@@ -125,6 +128,8 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
+nnoremap <C-m> :MaximizerToggle<CR>
 
 "*****************************************************************************
 "" Basic Setup
@@ -581,4 +586,36 @@ endfunc
 noremap <leader>st :VimShellTab<CR>
 noremap <leader>sc :VimShellClose<CR>
 
+"******************************************************************************
+"Nerd Commenter
+"*****************************************************************************
+
+" Add spaces after comment delimiters by default
+ let g:NERDSpaceDelims = 1
+"
+" " Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+"
+"" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+"
+" " Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/'  }  }
+"
+"" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+
+"*********************************************************************************
+"Vim auto save
+"*********************************************************************************
+"
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 
