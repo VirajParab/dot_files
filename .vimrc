@@ -305,9 +305,9 @@ let g:gitgutter_map_keys = 0
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 let g:gitgutter_highlight_lines = 1
-let g:gitgutter_diff_base = 'HEAD'
 
 nmap <Leader>g :GitGutterToggle <return>
+
 
 "*****************************************************************************
 "" Autocmd Rules
@@ -483,7 +483,7 @@ let g:tagbar_type_go = {
 " vim-go
 augroup FileType go
 	au!
-	au FileType go nmap gd <Plug>(go-def)
+	au FileType go nmap gd <Plug>(go-def-vertical)
 	au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 
 	au FileType go nmap <Leader>db <Plug>(go-doc-browser)
@@ -493,12 +493,14 @@ augroup FileType go
 	au FileType go nmap <leader>gr <Plug>(go-run)
 	au FileType go nmap <leader>rb <Plug>(go-build)
 	au FileType go nmap <leader>gt <Plug>(go-test)
+	au FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
 augroup END
 
 let g:javascript_enable_domhtmlcss = 1
 
 noremap <leader>gi :GoImport<CR>
 noremap <leader>gl :GoLint<CR>
+noremap <leader>gu :GoFiles<CR>
 
 
 " vim-javascript
@@ -614,4 +616,11 @@ let g:NERDTrimTrailingWhitespace = 1
 "
 let g:auto_save = 0  " enable AutoSave on Vim startup
 let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+
+"*********************************************************************************
+"Vim folds
+"*********************************************************************************
+set foldmethod=syntax
+noremap <leader>fc :foldclose<CR>
+noremap <leader>fo :foldopen<CR>
 
