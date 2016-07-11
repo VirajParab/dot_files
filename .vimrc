@@ -384,6 +384,8 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|tox|ico|gi
 let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
 let g:ctrlp_use_caching = 1
 
+nnoremap <C-o> :CtrlP<return>
+
 " The Silver Searcher
 if executable('ag')
 	set grepprg=ag\ --nogroup\ --nocolor
