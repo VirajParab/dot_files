@@ -74,12 +74,9 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-session'
 NeoBundle 'https://github.com/Valloric/YouCompleteMe.git'
-NeoBundle 'https://github.com/mickaobrien/vim-stackoverflow'
-NeoBundle 'https://github.com/Shougo/neocomplete.vim.git'
-NeoBundle 'xolox/vim-shell'
 NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'szw/vim-maximizer'
+
 
 if v:version >= 703
 	NeoBundle 'Shougo/vimshell.vim'
@@ -626,3 +623,5 @@ set foldmethod=syntax
 noremap <leader>fc :foldclose<CR>
 noremap <leader>fo :foldopen<CR>
 
+
+set clipboard=exclude:.*
