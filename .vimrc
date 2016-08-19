@@ -46,8 +46,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "" NeoBundle install packages
 "*****************************************************************************
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'jistr/vim-nerdtree-tabs.git'
-NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'vim-airline/vim-airline'
@@ -55,62 +53,15 @@ NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
-NeoBundle 'vim-scripts/CSApprox'
 NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'jiangmiao/auto-pairs'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle "Yggdroot/indentLine"
-NeoBundle 'Shougo/vimproc.vim', {
-			\ 'build' : {
-			\     'windows' : 'tools\\update-dll-mingw',
-			\     'cygwin' : 'make -f make_cygwin.mak',
-			\     'mac' : 'make -f make_mac.mak',
-			\     'unix' : 'make -f make_unix.mak',
-			\    },
-			\ }
-
-"" Vim-Session
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-session'
-NeoBundle 'https://github.com/Valloric/YouCompleteMe.git'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'szw/vim-maximizer'
-
-
-if v:version >= 703
-	NeoBundle 'Shougo/vimshell.vim'
-endif
-
-if v:version >= 704
-	"" Snippets
-	NeoBundle 'SirVer/ultisnips'
-	NeoBundle 'FelikZ/ctrlp-py-matcher'
-endif
-
-NeoBundle 'honza/vim-snippets'
-
+NeoBundle 'valloric/youcompleteme'
 "" Color
 NeoBundle 'tomasr/molokai'
+NeoBundle 'jdkanani/vim-material-theme'
 
-"" Vim-Bootstrap Updater by sherzberg
-NeoBundle 'avelino/vim-bootstrap-updater'
 
-"" Custom bundles
 "" Go Lang Bundle
 NeoBundle "fatih/vim-go"
-
-NeoBundle 'vim-scripts/c.vim'
-
-"" Javascript Bundle
-NeoBundle 'jelera/vim-javascript-syntax'
-
-"" HTML Bundle
-NeoBundle 'amirh/HTML-AutoCloseTag'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'gorodinskiy/vim-coloresque'
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'mattn/emmet-vim'
 
 "" Include user's extra bundle
 if filereadable(expand("~/.vimrc.local.bundles"))
@@ -259,7 +210,7 @@ let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-let g:NERDTreeWinSize = 50
+let g:NERDTreeWinPos = "left"
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <leader>ff :NERDTreeFind<CR>
 noremap <leader>op :NERDTreeToggle<CR>
@@ -484,6 +435,7 @@ augroup FileType go
 	au!
 	au FileType go nmap gd <Plug>(go-def-vertical)
 	au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+	au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
 	au FileType go nmap <Leader>db <Plug>(go-doc-browser)
 
@@ -502,7 +454,13 @@ noremap <leader>gl :GoLint<CR>
 noremap <leader>gu :GoFiles<CR>
 
 
-" vim-javascript
+let g:go_metalinter_autosave = 0
+let g:go_fmt_autosave = 1
+let g:go_asmfmt_autosave = 0
+let g:go_highlight_string_spellcheck = 0
+
+
+  " vim-javascript
 augroup vimrc-javascript
 	autocmd!
 	autocmd FileType javascript set tabstop=4|set shiftwidth=4|set expandtab softtabstop=4 smartindent
