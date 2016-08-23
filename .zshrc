@@ -33,7 +33,7 @@ ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+ COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -43,7 +43,7 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+ HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -52,7 +52,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git, zsh-autosuggestions)
+plugins=(git, zsh-autosuggestions, git, node, npm, brew)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -108,7 +108,7 @@ alias sbs='mck && cd storyboard/sb-svc'
 alias ppv='mck && cd performance/ppv'
 alias imtw='mck && cd impact/impact-tracker-web'
 alias imts='mck && cd impact/impact-tracker-server'
-alias shrd='mck && cd shared' 
+alias shrd='mck && cd shared'
 alias pcas='mck && cd pcas'
 alias ocr='ws && cd c++/KOCREngine'
 alias it='mck && cd impact'
