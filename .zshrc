@@ -102,19 +102,6 @@ alias cws='ws && cd c++'
 
 
 #project paths
-alias mck="cd $GOPATH && cd src/git.periscope-solutions.com"
-alias sbw='mck && cd storyboard/sb-web'
-alias sbs='mck && cd storyboard/sb-svc'
-alias ppv='mck && cd performance/ppv'
-alias imtw='mck && cd impact/impact-tracker-web'
-alias imts='mck && cd impact/impact-tracker-server'
-alias shrd='mck && cd shared'
-alias pcas='mck && cd pcas'
-alias ocr='ws && cd c++/KOCREngine'
-alias it='mck && cd impact'
-alias dev='mck && cd impact/environment/dev'
-alias infra='mck && cd infra'
-alias mb="cd $GOPATH && cd src/git.mailbox.com"
 
 #git specific
 alias gs='git status'
