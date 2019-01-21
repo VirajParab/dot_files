@@ -55,9 +55,12 @@ NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'valloric/youcompleteme'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'vim-ruby/vim-ruby'
 "" Color
 NeoBundle 'tomasr/molokai'
 NeoBundle 'jdkanani/vim-material-theme'
+NeoBundle 'szw/vim-maximizer'
 
 
 "" Go Lang Bundle
@@ -247,7 +250,7 @@ endif
 "**************************************************************************
 " Git Gutter
 "**************************************************************************
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 let g:gitgutter_max_signs = 500  " default value"
 let g:gitgutter_map_keys = 0
 let g:gitgutter_realtime = 0
@@ -583,3 +586,31 @@ noremap <leader>fo :foldopen<CR>
 
 
 set clipboard=exclude:.*
+
+"***********************************************************************************
+"Ruby support
+"**********************************************************************************
+
+set nocompatible      " We're running Vim, not Vi!
+syntax on             " Enable syntax highlighting
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
+set expandtab
+set tabstop=2 shiftwidth=2 softtabstop=2
+set autoindent
+
+imap <S-CR>    <CR><CR>end<Esc>-cc
+if !exists( "*EndToken" )
+  function EndToken()
+    let current_line = getline( '.' )
+    let braces_at_end = '{\s*\(|\(,\|\s\|\w\)*|\s*\)\?$'
+    if match( current_line, braces_at_end ) >= 0
+      return '}'
+    else
+      return 'end'
+    endif
+  endfunction
+endif
+
+imap <S-CR> <ESC>:execute 'normal o' . EndToken()<CR>O

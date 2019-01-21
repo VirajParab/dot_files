@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export GOPATH=$HOME/work
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin:/usr/local/go/bin
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin:/usr/local/go/bin:/Users/in-virajp/spark-2.3.1-bin-hadoop2.7/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/in-virajp/.oh-my-zsh
@@ -121,3 +121,34 @@ alias glog='git log'
 
 #go vendor experiment
 export GO15VENDOREXPERIMENT=1
+
+alias psql='/Applications/Postgres.app/Contents/Versions/9.6/bin/psql'
+
+export MAGICK_HOME="/Users/in-virajp/projects/E4R_exp/ImageMagick-7.0.7"
+export PATH=$MAGICK_HOME/bin:$PATH
+export PATH=~/Library/Python/2.7/bin:$PATH
+export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+rvm --default use 2.5.1
+
+[[ -s /Users/in-virajp/.autojump/etc/profile.d/autojump.sh ]] && source /Users/in-virajp/.autojump/etc/profile.d/autojump.sh
+
+export SBT_OPTS=-Xss1024M
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+export PATH=/Users/in-virajp/work/bin:$PATH
+
+alias exportToZsh="echo $1 >> ~/.zshrc" 
+
+export PATH=/Users/in-virajp/spark-2.3.2-bin-hadoop2.7/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
+    source ~/.config/exercism/exercism_completion.zsh
+fi
