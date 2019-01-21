@@ -6,16 +6,22 @@
 (package-initialize)
 
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("274fa62b00d732d093fc3f120aca1b31a6bb484492f31081c1814a858e25c72e" default)))
  '(package-archives
    (quote
-    (("melpa" . "http://melpa.org/packages/")
-     ("gnu" . "https://elpa.gnu.org/packages/")))))
+    (("melpa" . "http://melpa.milkbox.net/packages/")
+     ("gnu" . "https://elpa.gnu.org/packages/"))))
+ '(package-selected-packages
+   (quote
+    (find-file-in-project neotree go-mode linum-relative indent-tools airline-themes dracula-theme protobuf-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -23,13 +29,12 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; load emacs 24's package system. Add MELPA repository.
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (add-to-list
-   'package-archives
-   ;; '("melpa" . "http://stable.melpa.org/packages/") ; many packages won't show if using stable
-   '("melpa" . "http://melpa.milkbox.net/packages/")
-   t))
-
 (add-to-list 'load-path "~/dot_files/.emacs.d/packages/")
+
+(load-theme 'misterioso)
+
+(require 'linum-relative)
+(linum-relative-global-mode)
+
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
