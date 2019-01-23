@@ -21,7 +21,7 @@
      ("gnu" . "https://elpa.gnu.org/packages/"))))
  '(package-selected-packages
    (quote
-    (fzf hydra ivy popup powerline s yafolding auto-complete exec-path-from-shell go-autocomplete find-file-in-project neotree go-mode linum-relative indent-tools airline-themes dracula-theme protobuf-mode))))
+    (markdown-mode markdown-mode+ markdown-preview-eww markdown-preview-mode md-readme fzf hydra ivy popup powerline s yafolding auto-complete exec-path-from-shell go-autocomplete find-file-in-project neotree go-mode linum-relative indent-tools airline-themes dracula-theme protobuf-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -57,3 +57,4 @@
 (with-eval-after-load 'go-mode
   (require 'go-autocomplete))
 
+(setq markdown-command "/usr/local/bin/pandoc")
