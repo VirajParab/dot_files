@@ -1,4 +1,3 @@
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -39,6 +38,8 @@
 
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+
 
 (add-to-list 'exec-path "/Users/Viraj_Kumar/work/bin")
 (add-hook 'before-save-hook 'gofmt-before-save)
