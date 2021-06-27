@@ -1,27 +1,39 @@
 # If you come from bash you might have to change your $PATH.
-export GOPATH=$HOME/work
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin:/usr/local/go/bin:/Users/in-virajp/spark-2.3.1-bin-hadoop2.7/bin
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/in-virajp/.oh-my-zsh
+export ZSH="/home/viraj/.oh-my-zsh"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -33,7 +45,9 @@ ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
- COMPLETION_WAITING_DOTS="true"
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -42,17 +56,21 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
- HIST_STAMPS="mm/dd/yyyy"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions git node npm brew)
+plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -72,10 +90,13 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
+export PATH=$PATH:/usr/local/go/bin:/home/viraj/workspace/bin
+#export GOPATH=$dir
+export GOROOT=/usr/local/go
+export GOPATH=/home/viraj/workspace
+export GOBIN=/home/viraj/workspace/bin
+export GO111MODULE=on 
+export GOSUMDB=off
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -84,24 +105,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
-alias ozp='vim ~/.zshrc'
-alias szp='source ~/.zshrc'
-alias xe="exit"
-alias c="clear"
-alias vrc='vim ~/.vimrc'
-alias g+="g++-5"
-alias gc="gcc-5"
-alias c+="clang++"
-alias cc="clang"
-
-#personal projects
-alias ws="cd ~/Workspace"
-alias cws='ws && cd c++'
-
-
-#project paths
 
 #git specific
 alias gs='git status'
@@ -119,36 +122,27 @@ alias gco='git checkout'
 alias gl='git log --oneline'
 alias glog='git log'
 
-#go vendor experiment
-export GO15VENDOREXPERIMENT=1
 
-alias psql='/Applications/Postgres.app/Contents/Versions/9.6/bin/psql'
+export AWS_REGION=us-west-2
+#export AWS_REGION=ap-southeast-1
+export AWS_PROFILE=xendit-staging
+export GITHUB_TOKEN='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'
+alias clh='aws-vault exec home -- chamber list '
+alias cls='aws-vault exec xendit-staging -- chamber list -e '
+alias dockerlogin='docker login -u AWS -p $(aws ecr get-login-password --region ap-southeast-1 --profile xendit ) https://420361828844.dkr.ecr.ap-southeast-1.amazonaws.com'
+alias dockerloginwithurl='docker login -u AWS -p $(aws ecr get-login-password --region ap-southeast-1 --profile xendit )'
 
-export MAGICK_HOME="/Users/in-virajp/projects/E4R_exp/ImageMagick-7.0.7"
-export PATH=$MAGICK_HOME/bin:$PATH
-export PATH=~/Library/Python/2.7/bin:$PATH
-export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-rvm --default use 2.5.1
+alias vpnstart='openvpn3 session-start --config ~/client.ovpn'
+alias vpnstop='openvpn3 session-manage --disconnect --config ~/client.ovpn'
 
-[[ -s /Users/in-virajp/.autojump/etc/profile.d/autojump.sh ]] && source /Users/in-virajp/.autojump/etc/profile.d/autojump.sh
+export FZF_DEFAULT_OPTS='--extended'
 
-export SBT_OPTS=-Xss1024M
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH=/Users/in-virajp/work/bin:$PATH
-
-alias exportToZsh="echo $1 >> ~/.zshrc" 
-
-export PATH=/Users/in-virajp/spark-2.3.2-bin-hadoop2.7/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
-    source ~/.config/exercism/exercism_completion.zsh
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
+
+
