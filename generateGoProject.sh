@@ -29,7 +29,7 @@ mkdir handler
 cd ..
 
 # Initialize the go.mod file with the specified module path
-go mod init "github.com/$user_name/$repo_name"
+go mod init "$repo_name"
 
 # Create the README.md file
 touch README.md
