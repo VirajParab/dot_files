@@ -123,19 +123,6 @@ alias gl='git log --oneline'
 alias glog='git log'
 
 
-export AWS_REGION=us-west-2
-#export AWS_REGION=ap-southeast-1
-export AWS_PROFILE=xendit-staging
-export GITHUB_TOKEN='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'
-alias clh='aws-vault exec home -- chamber list '
-alias cls='aws-vault exec xendit-staging -- chamber list -e '
-alias dockerlogin='docker login -u AWS -p $(aws ecr get-login-password --region ap-southeast-1 --profile xendit ) https://420361828844.dkr.ecr.ap-southeast-1.amazonaws.com'
-alias dockerloginwithurl='docker login -u AWS -p $(aws ecr get-login-password --region ap-southeast-1 --profile xendit )'
-
-
-alias vpnstart='openvpn3 session-start --config ~/client.ovpn'
-alias vpnstop='openvpn3 session-manage --disconnect --config ~/client.ovpn'
-
 export FZF_DEFAULT_OPTS='--extended'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
